@@ -10,7 +10,7 @@ dropdb:
 migrateup:
 	cd .\db\ && migrate -path migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
 migratedown:
-	 migrate -path migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
+	cd .\db\ && migrate -path migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
 sqlc:
 	docker run --rm -v "E:\goproject\db:/src" -w /src kjconroy/sqlc generate
 test:
